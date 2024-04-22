@@ -29,6 +29,7 @@ const rect2: Rect = {
 }
 
 rect2.color = 'black'
+// rect2.id = '456798' не можна поміняти значення, бо тільки readonly
 
 // вказувати до якого типу буде відноситися обєект
 // 1 варіант, новий запис
@@ -36,4 +37,32 @@ const rect3 = {} as Rect
 // 2 варіант, старий запис
 const rect3 = <Rect>{}
 
-// ==================================
+// ================================== inheritance - наслідування
+
+interface RectWithArea extends Rect {
+	getArea: () => number
+}
+
+const rect5: RectWithArea = {
+	id: '123',
+	size: {
+		width: 20,
+		height: 20,
+	},
+	getArea(): number {
+		return this.size.width * this.size.height
+	},
+}
+
+// ================================== звязок з класами connection with classes, classes implements
+interface IClock {
+	time: Date
+	setTime(date: Date): void
+}
+
+class Clock implements IClock {
+	time: Date = new Date()
+	setTime(date: Date): void {
+		this.time = date
+	}
+}
