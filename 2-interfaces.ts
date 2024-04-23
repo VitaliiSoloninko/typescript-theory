@@ -66,3 +66,15 @@ class Clock implements IClock {
 		this.time = date
 	}
 }
+
+// інтерфейс для обєкта в якого буде багато динамічних ключів
+// interface for an object with dynamic keys
+interface Styles {
+	[key: string]: string
+}
+
+const css: Styles = {
+	border: '1px solid black',
+	marginTop: '2px',
+	borderRadius: '5px',
+}
