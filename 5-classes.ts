@@ -58,3 +58,19 @@ const cat = new Cat()
 cat.setVoice('test')
 console.log(cat.color)
 // cat.voice - error, voice is protected and cat isn't subclasses Animal
+
+// ============ abstract classes - вони ні в що не компілюються, але потрібні, щоб від них наслідуватися
+
+abstract class Component {
+	abstract render(): void // void нічого не повертає
+	abstract info(): string // string повертає рядок
+}
+
+class AppComponent extends Component {
+	render(): void {
+		console.log('Component on render')
+	}
+	info(): string {
+		return 'This is info'
+	}
+}
